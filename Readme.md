@@ -22,6 +22,8 @@ This project is a web-based application designed to detect potential fraudulent 
 4. **CASH_OUT (3)**: Withdrawal of physical cash.
 5. **TRANSFER (4)**: Funds transferred between accounts.
 
+Fraudulent Transactions: Fraud has been observed more frequently in the TRANSFER and CASH_OUT transaction types, with these types being more likely to involve fraudulent activities based on Exploratory Data Analysis (EDA).
+
 ---
 
 ## Technologies Used
@@ -45,7 +47,7 @@ This project is a web-based application designed to detect potential fraudulent 
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/Lava-Kumar-PL/online_fraud_detection.git
+    git clone 
     ```
 2. Navigate to the project directory:
     ```bash
@@ -86,27 +88,45 @@ This project is a web-based application designed to detect potential fraudulent 
 
 ---
 ## Demo
+<img src="" width="500" />
 
-
+---
 
 ## Screenshots
 
 ### Home Page
 
+
 ### Prediction Form
+
 
 ### Preticted Fraud
 
+
 ### Predicted Non-Fraud
+
 
 ---
 
+## Key Findings from EDA
 
+### Fraudulent Transactions tend to have:
+
+-Transaction Type: Primarily TRANSFER and CASH_OUT.
+-Amount: Higher amounts, typically above 1,467,967.30.
+-Sender's Balance: Lower balances, typically below 1,649,667.61.
+-Receiver's Balance: Can vary, but often lower balances, typically below 544,249.62.
+
+### Non-Fraudulent Transactions tend to have:
+
+-Transaction Type: Primarily PAYMENT and CASH_IN.
+-Amount: Lower amounts, typically below 178,197.04.
+-Sender's Balance: Higher balances, typically above 832,828.71.
+-Receiver's Balance: Higher balances, typically above 1,101,420.87.
+
+---
 
 ## Acknowledgments
 
 - Machine learning model development inspired by financial fraud datasets.
 - Frontend design contributions by the team.
-
----
-
