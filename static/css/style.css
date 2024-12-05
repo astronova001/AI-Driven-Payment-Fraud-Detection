@@ -1,0 +1,160 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333; /* Default text color */
+}
+
+.text {
+    text-align: center;
+    max-width: 800px; /* Limit the width */
+    width: 100%;
+    background-color: white; /* Background color for the text section */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#header {
+    font-size: 2.5rem;
+    color: #333;
+}
+/* Welcome Container */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f4f4f4; /* Light background color */
+    padding: 20px;
+}
+
+/* Content Section */
+.content {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 20px;
+    text-align: left; /* Align the text to the left */
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Image Container */
+.image {
+    background-image: url("../img/py.jpeg"); /* Replace with the correct image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Form Container */
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Transparent white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    max-width: 400px;
+    width: 90%;
+    text-align: left; /* Align form fields to the left */
+}
+
+/* Form Heading */
+.container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Dropdown Style */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Small Text Below Inputs and Dropdown */
+small {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    input, select {
+        font-size: 13px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+.result-page {
+    background-color: #333; /* Replace with your desired background color */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #f4f4f9;
+}

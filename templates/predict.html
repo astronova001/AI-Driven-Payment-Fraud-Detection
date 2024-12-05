@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Payment Fraud Detection</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script>
+        function calculateDayAndHour() {
+            const step = parseInt(document.getElementById("step").value);
+            const resultDiv = document.getElementById("result");
+
+            if (isNaN(step) || step < 1 || step > 744) {
+                resultDiv.textContent = "Step must be between 1 and 744.";
+                return;
+            }
+
+            const day = Math.floor((step - 1) / 24) + 1; // Day calculation
+            const hour = (step - 1) % 24; // Hour calculation
+
+            resultDiv.textContent = `Day: ${day}th, Hour: ${hour}:00`;
+        }
+    </script>
+</head>
+<body class="predict-page">
+    <div class="image">
+        <div class="container">
+            <h1>AI-Driven Payment Fraud Detection/h1>
+            <form action="/predict" method="POST">
+                <div class="form-group">
+                    <label for="step">Step:</label>
+                    <input type="number" id="step" name="step" placeholder="Step" min="1" max="744" required oninput="calculateDayAndHour()">
+                    <small>Valid range: 1 to 744</small>
+                </div>
+                <div id="result" style="margin-top: 10px; font-weight: bold;"></div>
+                <br>
+                <div class="form-group">
+                    <label for="type">Transaction Type:</label>
+                    <select id="type" name="type" required>
+                        <option value="0">PAYMENT</option>
+                        <option value="1">CASH_IN</option>
+                        <option value="2">DEBIT</option>
+                        <option value="3">CASH_OUT</option>
+                        <option value="4">TRANSFER</option>
+                    </select>
+                    <small>Select transaction type</small>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" placeholder="Amount" min="0" max="50000000" required>
+                    <small>Valid range: 0 to 50,000,000</small>
+                </div>
+                <div class="form-group">
+                    <label for="oldBalanceOrigin">Old Balance (Origin):</label>
+                    <input type="number" id="oldBalanceOrigin" name="oldBalanceOrigin" placeholder="Old Balance (Origin)" min="0" max="5000000" required>
+                    <small>Valid range: 0 to 5,000,000</small>
+                </div>
+                <div class="form-group">
+                    <label for="oldBalanceDestination">Old Balance (Destination):</label>
+                    <input type="number" id="oldBalanceDestination" name="oldBalanceDestination" placeholder="Old Balance (Destination)" min="0" max="5000000" required>
+                    <small>Valid range: 0 to 5,000,000</small>
+                </div>
+                <button type="submit">Predict</button>
+                <button type="button" onclick="window.location = '/'">Home</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

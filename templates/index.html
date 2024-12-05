@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="text">
+            <h1 id="header">Fraud Detection System</h1>
+            <div class="content">
+                <p>
+                    The surge in online credit/debit card transactions has led to an upsurge in fraud. 
+                    To combat this, we're employing classification algorithms like Random Forest. 
+                    Using a vast dataset, we'll train and evaluate these models, selecting the one 
+                    with the highest accuracy, precision, and a low false positive rate. 
+                    The chosen model will be saved in pkl format. We'll integrate it into a Flask web 
+                    application for real-time detection. 
+                    This project aims to enhance fraud detection, save costs, and offer real-time protection.
+                </p>
+
+                <h3>Transaction Data Ranges Based on EDA</h3>
+                <p><strong>Fraudulent Transactions:</strong></p>
+                <ul>
+                    <li><strong>step:</strong> Typically between 1 and 743</li>
+                    <li><strong>type:</strong> Fraud is most likely to occur with types 1 (Transfer) and 4 (Cashout)</li>
+                    <li><strong>amount:</strong> Higher amounts, typically above 1,467,967.30</li>
+                    <li><strong>oldbalanceOrg:</strong> Lower balances, typically below 1,649,667.61</li>
+                    <li><strong>oldbalanceDest:</strong> Can vary, but often lower balances, typically below 544,249.62</li>
+                </ul>
+
+                <p><strong>Non-Fraudulent Transactions:</strong></p>
+                <ul>
+                    <li><strong>step:</strong> Typically between 1 and 718</li>
+                    <li><strong>type:</strong> More likely to be 0 (Payment) or 3 (Deposit)</li>
+                    <li><strong>amount:</strong> Lower amounts, typically below 178,197.04</li>
+                    <li><strong>oldbalanceOrg:</strong> Higher balances, typically above 832,828.71</li>
+                    <li><strong>oldbalanceDest:</strong> Can vary, but often higher balances, typically above 1,101,420.87</li>
+                </ul>
+
+                <h3>Understanding "Step"</h3>
+                <p><strong>Step</strong> represents the time point of a transaction within a specific day in the dataset. It is essentially a timestamp index that helps us track when a particular transaction took place. The values of "step" range from 1 to 744, where:</p>
+                <ul>
+                    <li><strong>Step 1</strong>: Represents the first transaction of the day (00:00 hour).</li>
+                    <li><strong>Step 744</strong>: Represents the last transaction of the day (23:59 hour).</li>
+                    <li>The "step" value is essentially a time encoding, where each value corresponds to an hour in the day. For example, step 1 would indicate the start of the day, and as the step value increases, it moves toward the end of the day.</li>
+                    <li>Since there are 24 hours in a day, step values are calculated to fit into this timeframe, and the model uses these values to understand the distribution of transactions throughout the day.</li>
+                </ul>
+                <p>This helps us understand patterns like peak transaction times or any unusual behavior in transaction activities, which could indicate fraud.</p>
+
+                <h3>Understanding Transaction Types</h3>
+                <p>The dataset contains several transaction types, each represented by a unique number:</p>
+                <ul>
+                    <li><strong>Type 0:</strong> Payment - These transactions are usually payments to merchants or bill payments.</li>
+                    <li><strong>Type 1:</strong> Transfer - Fraud is most likely to occur in these transactions, as they involve transferring funds to another account.</li>
+                    <li><strong>Type 2:</strong> Cash-in - Adding funds to the account, which are generally non-fraudulent transactions.</li>
+                    <li><strong>Type 3:</strong> Deposit - These transactions typically involve deposits from other accounts or services.</li>
+                    <li><strong>Type 4:</strong> Cashout - Fraud is highly likely in cashout transactions, where funds are withdrawn from the account.</li>
+                </ul>
+                <p>Fraudulent activities are observed primarily in <strong>Transfer (Type 1)</strong> and <strong>Cashout (Type 4)</strong> transactions based on the exploratory data analysis (EDA) of the dataset.</p>
+
+                <button onclick="window.location.href = '/predict'">Proceed to Predict</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

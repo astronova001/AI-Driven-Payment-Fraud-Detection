@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - Fraud Detection</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        /* Blinking animation */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Red highlight for fraud */
+        .fraud-alert {
+            color: white;
+            background-color: red;
+            padding: 10px;
+            border-radius: 5px;
+            animation: blink 1s infinite;
+        }
+
+        /* Green highlight for non-fraud */
+        .non-fraud-alert {
+            color: white;
+            background-color: green;
+            padding: 10px;
+            border-radius: 5px;
+            animation: blink 1s infinite;
+        }
+
+        /* Other content styles */
+        .content {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="result-page">
+    <div class="container1">
+        <h1 class="heading">Online Payment Fraud Detection</h1>
+        <!-- Highlight the prediction result -->
+        {% if error %}
+            <p class="content error">Error: {{ error }}</p>
+        {% else %}
+            <p class="content {{ 'fraud-alert' if prediction else 'non-fraud-alert' }}">
+                The transaction is predicted to be: <strong>{{ "Fraud" if prediction else "Non-Fraud" }}</strong>
+            </p>
+            <p class="content">Probability of Fraud: {{ probability[1] | round(2) }}</p>
+            <p class="content">Model Used: Random Forest Classifier</p>
+        {% endif %}
+    </div>
+    <div class="btn">
+        <button onclick="window.location.href = '/predict'">Predict Again</button>
+    </div>
+</body>
+</html>
