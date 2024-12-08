@@ -95,7 +95,7 @@ Fraudulent Transactions: Fraud has been observed more frequently in the TRANSFER
 ## Screenshots
 
 ### Home Page
-<img src="https://github.com/astronova001/AI-Driven-Payment-Fraud-Detection/blob/main/results/formPage.png](https://github.com/astronova001/AI-Driven-Payment-Fraud-Detection/blob/main/results/frontpage.png" width="500" />
+<img src="https://github.com/astronova001/AI-Driven-Payment-Fraud-Detection/blob/main/results/frontpage.png" width="500" />
 
 ### Prediction Form
 <img src="https://github.com/astronova001/AI-Driven-Payment-Fraud-Detection/blob/main/results/formPage.png" width="500" />
